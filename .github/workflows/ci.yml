@@ -65,4 +65,4 @@ jobs:
 
       - name: Run Go Vet
         run: go vet ./...
-        working-directory:
+        working-directory: backend
