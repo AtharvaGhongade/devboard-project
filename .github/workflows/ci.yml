@@ -66,3 +66,8 @@ jobs:
       - name: Run Go Vet
         run: go vet ./...
         working-directory: backend
+
+  deploy:
+    needs: [frontend, backend]
+    uses: ./.github/workflows/cd.yml
+    secrets: inherit
