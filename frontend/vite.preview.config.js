@@ -1,7 +1,8 @@
-// Used only when serving the built app with `vite preview` inside the Docker
-// image. It forwards /api to the backend — the same job nginx would do.
+// Used only when serving the built app with `vite preview`
+// image. It forwards /api to the backend — the same job ng...
 export default {
   preview: {
+    allowedHosts: ['devboard.atharva-dev.xyz'],
     proxy: {
       '/api': {
         target: 'http://backend:8080',
