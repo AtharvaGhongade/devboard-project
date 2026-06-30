@@ -4,11 +4,7 @@
 name: CI
 
 on:
-  push:
-    paths:
-      - '**'
-      - '!.github/workflows/**'
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   frontend:
