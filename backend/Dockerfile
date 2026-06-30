@@ -2,6 +2,8 @@
 # (No multi-stage yet — slimming the final image comes later in the course.)
 FROM golang:1.22-alpine
 
+RUN apk update && apk upgrade --no-cache
+
 WORKDIR /app
 
 # Download deps first for better layer caching.
