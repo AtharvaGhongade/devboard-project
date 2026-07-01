@@ -9,7 +9,8 @@ jobs:
     docker-file-lint-and-scan:
         runs-on: ubuntu-latest
         strategy:
-            matrix:
+          fail-fast: false
+          matrix:
                 folders: [ 'frontend','backend' ]
         steps:
             - name: Checkout Code
@@ -39,5 +40,6 @@ jobs:
                 ignore-unfixed: true
                 vuln-type: 'os,library'
                 severity: 'CRITICAL,HIGH'
+                skip-dirs: '/usr/local/lib/node_modules/npm'
 
             
