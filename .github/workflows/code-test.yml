@@ -26,6 +26,10 @@ jobs:
                 go-version-file: backend/go.mod
                 cache-dependency-path: backend/go.sum
 
+            - name: Install frontend dependencies
+              run: npm ci
+              working-directory: frontend
+              
             - name: Run tests
               run: npm run test
               working-directory: frontend
