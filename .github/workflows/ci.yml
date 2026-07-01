@@ -1,10 +1,9 @@
-# Goal - I have to lint, build, test the code for frontend and backend
-# then push the images to docker hub.
+# Goal - Push the images to dockerhub
 
-name: CI
+name: Docker Push
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   frontend:
@@ -66,7 +65,11 @@ jobs:
         run: go vet ./...
         working-directory: backend
 
+      - name: Run Tests
+        run: go test
+        working-directory: backend
+
   deploy:
-    needs: [frontend, backend]
-    uses: ./.github/workflows/cd.yml
-    secrets: inherit
+      needs: [frontend, backend]
+      uses: ./.github/workflows/cd.yml
+      secrets: inherit
