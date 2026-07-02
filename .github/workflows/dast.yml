@@ -1,33 +1,35 @@
 # Goal: To ensure my running application is free from OWASP Top 10 security issues
 name: OWASP ZAP DAST Scan
- 
+
 on:
   workflow_call:
- 
+
 jobs:
   scan:
     runs-on: self-hosted
- 
+
     steps:
       - name: Code Checkout
         uses: actions/checkout@v7
- 
+
       - name: Wait for frontend to be healthy
         run: |
           timeout 60s sh -c 'until curl -sf http://localhost:8080 > /dev/null; do sleep 2; done'
- 
+
       - name: Wait for backend to be healthy
         run: |
-          timeout 60s sh -c 'until curl -sf http://localhost:8081 > /dev/null; do sleep 2; done'
- 
+          timeout 60s sh -c 'until curl -sf http://localhost:8081/health > /dev/null; do sleep 2; done'
+
       - name: OWASP ZAP Baseline Scan - Frontend
         uses: zaproxy/action-baseline@v0.14.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8080'
-          # Report is uploaded as a workflow artifact and posted as an issue,
-          # but does NOT fail the job by itself - controlled explicitly below instead.
           fail_action: false
-          allow_issue_writing: false
-          cmd_options: '-a'
- 
+
+      - name: OWASP ZAP Baseline Scan - Backend
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target: 'http://localhost:8081'
+          fail_action: false
