@@ -21,15 +21,17 @@ jobs:
           timeout 60s sh -c 'until curl -sf http://localhost:8081/health > /dev/null; do sleep 2; done'
 
       - name: OWASP ZAP Baseline Scan - Frontend
-        uses: zaproxy/action-baseline@v0.16.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8080'
           fail_action: false
+          cmd_options: '-d'
 
       - name: OWASP ZAP Baseline Scan - Backend
-        uses: zaproxy/action-baseline@v0.16.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8081'
           fail_action: false
+          cmd_options: '-d'
