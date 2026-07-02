@@ -1,4 +1,4 @@
-# Goal: To ensure my running application is free from OWASP Top 10 security issues
+# Goal: To ensure my running application is free from OWASP Top 10 security issues.
 name: OWASP ZAP DAST Scan
 
 on:
