@@ -26,6 +26,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8080'
           fail_action: false
+          allow_issue_writing: false
           cmd_options: '-d'
 
       - name: OWASP ZAP Baseline Scan - Backend
@@ -34,4 +35,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8081'
           fail_action: false
+          allow_issue_writing: false
           cmd_options: '-d'
