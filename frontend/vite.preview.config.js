@@ -10,5 +10,11 @@ export default {
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
+    headers: {
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Content-Security-Policy': "default-src 'self'",
+      'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
+    },
   },
 };
