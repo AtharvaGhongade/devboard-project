@@ -11,8 +11,6 @@
 
 [Live Demo](https://devboard.atharva-dev.xyz) · [SonarQube Dashboard](https://sonarqube.atharva-dev.xyz) · [Pipeline Runs](https://github.com/AtharvaGhongade/devboard-project/actions)
 
-> **Note:** The live demo runs on a personal Azure VM kept up intermittently to manage cloud costs. If the links above are down, the screenshots below capture the full working pipeline and app — or open an [Actions run](https://github.com/AtharvaGhongade/devboard-project/actions) directly to see it execute.
-
 </div>
 
 ---
@@ -147,16 +145,7 @@ A few of the real debugging problems this pipeline survived (not just "it worked
 
 ---
 
-## What's next
-
-- [ ] Move Postgres off the embedded/local instance to a managed or properly backed-up store
-- [ ] Add DAST as a soft-fail gate with baseline-tuned rules (currently report-only)
-- [ ] Add branch protection + required status checks on `main`
-- [ ] AZ-400 (CI/CD on Azure) certification to formalize this pipeline experience
-
----
-
 ## Author
 
 **Atharva Ghongade** — DevOps / Cloud Engineer
-[LinkedIn](#) · [GitHub](https://github.com/AtharvaGhongade)
+[LinkedIn](https://www.linkedin.com/in/atharva-ghongade-/) · [GitHub](https://github.com/AtharvaGhongade)
